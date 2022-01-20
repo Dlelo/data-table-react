@@ -41,7 +41,7 @@ activeCategory: 'All'
 }
  const [displayTransactions, updateTranscations]= useState(currentransactions)
 
-        //console.log(displayTransactions);
+        console.log(displayTransactions);
 
         // used memo hook ensures data is not recreated on every render - better perfromance.
 
@@ -49,7 +49,7 @@ activeCategory: 'All'
         const data =useMemo(()=> SAMPLE_DATA, [])
 
 
-        // to use this initial data use -const data =useMemo(()=> displayTransactions.transactions, [])
+        // to use this initial defined data const data =useMemo(()=> displayTransactions.transactions, [])
 
         const transactionTable=useTable({
           columns,
