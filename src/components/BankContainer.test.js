@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { getByDisplayValue, getByLabelText, render, screen } from "@testing-library/react"
 import BankContainer from "./BankContainer"
 
-test('Test if the component loads with no error', ()=>{
+test('Test if the component loads successfuly', ()=>{
     render(<BankContainer/>)
     screen.debug()
 })
