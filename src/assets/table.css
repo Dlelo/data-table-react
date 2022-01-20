@@ -1,0 +1,46 @@
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 10px;
+}
+
+table td,
+table th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+table tr:nth-child(even) {
+    background-color: white
+}
+
+table tr:hover {
+    background-color: rgb(243, 231, 255);
+}
+
+table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+}
+
+table tr {
+    padding-left: 2px;
+}
+
+.table-container {
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.radio-filter>[type=radio] {
+    box-sizing: border-box;
+    padding: 0;
+    margin-left: 2rem;
+    margin-right: 5px;
+}
+
+.radio-filter>[type=radio]:checked {
+    background-color: black;
+    accent-color: black;
+}
