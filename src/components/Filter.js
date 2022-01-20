@@ -2,7 +2,7 @@ import React from 'react'
 
 export const Filter = ({filter, setFilter})=>{
  return(
-     <div class="radio-filter">
+     <div className="radio-filter">
          <input
         type="radio"
         defaultChecked
