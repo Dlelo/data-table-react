@@ -1,9 +1,8 @@
 import React, {useMemo, useState} from 'react'
-import {useTable, useGlobalFilter} from 'react-table'
+import {useTable,useFilters, useGlobalFilter} from 'react-table'
 import SAMPLE_DATA from './sample_data.json'
 import {COLUMNS} from './columns'
 import './../assets/table.css';
-import Filter from './Filter'
 
 const BankContainer = ()=> {
 
@@ -41,7 +40,7 @@ activeCategory: 'All'
 }
  const [displayTransactions, updateTranscations]= useState(currentransactions)
 
-        //console.log(displayTransactions);
+        console.log(displayTransactions);
 
         // used memo hook ensures data is not recreated on every render - better perfromance.
 
@@ -49,12 +48,14 @@ activeCategory: 'All'
         const data =useMemo(()=> SAMPLE_DATA, [])
 
 
-        // to use this initial data use -const data =useMemo(()=> displayTransactions.transactions, [])
+        // to use this initial defined data const data =useMemo(()=> displayTransactions.transactions, [])
 
         const transactionTable=useTable({
           columns,
           data,
-        }, useGlobalFilter)
+        },
+        useFilters,
+        useGlobalFilter)
 
         const{
           getTableProps,
@@ -62,20 +63,90 @@ activeCategory: 'All'
           headerGroups,
           rows,
           prepareRow,
-          state,
-          setGlobalFilter,
+          setFilter
         } = transactionTable
-
-        const{globalFilter} = state
-
-
 
 
 
         return (
           <div className='ui grid container'> {
             <div className='table-container'>
-             <Filter filter={globalFilter} setFilter={setGlobalFilter}/>
+             <div className="radio-filter">
+                  <input
+                  type="radio"
+                  defaultChecked
+                  value=''
+                  name="cond"
+                  onChange={(event) => setFilter('category',event.target.value)}
+                />
+                All
+                <input
+                  type="radio"
+                  value="Entertainment"
+                  name="cond"
+                  onChange={(event) => setFilter('category', event.target.value)}
+                />
+                Entertainment
+                <input
+                  type="radio"
+                  value="Income"
+                  name="cond"
+                  onChange={(event) => setFilter('category',event.target.value)}
+                />
+                Income
+                <input
+                  type="radio"
+                  value="Food"
+                  name="cond"
+                  onChange={(event) => setFilter('category',event.target.value)}
+                />
+                Food
+                <input
+                  type="radio"
+                  value="Fashion"
+                  name="cond"
+                  onChange={(event) => setFilter('category',event.target.value)}
+                />
+                Fashion
+                <input
+                  type="radio"
+                  value="Gift"
+                  name="cond"
+                  onChange={(event) => setFilter('category',event.target.value)}
+                />
+                Gift
+                <input
+                  type="radio"
+                  value="ATM"
+                  name="cond"
+                  onChange={(event) => setFilter('category',event.target.value)}
+                />
+                ATM
+                <input
+                  type="radio"
+                  value="Transportation"
+                  name="cond"
+                  onChange={(event) => setFilter('category',event.target.value)}
+                />
+              Transportation
+              <input
+                  type="radio"
+                  value="Housing"
+                  name="cond"
+                  onChange={(event) => setFilter('category',event.target.value)}
+                />
+              Housing
+              <input
+                  type="radio"
+                  value="Misery"
+                  name="cond"
+                  onChange={(event) => setFilter("category",event.target.value)}
+                />
+              Misery
+
+
+
+              </div>
              <table {...getTableProps()}>
             <thead>
               {// Loop over the header rows
